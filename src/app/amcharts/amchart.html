@@ -1,0 +1,11 @@
+<h3>Amchart</h3>
+Start date <input datetime-picker ng-model="data.sdate.value" date-format="yyyy-MM-dd HH:mm" />
+End date <input datetime-picker ng-model="data.edate.value" max="endDate.max" date-format="yyyy-MM-dd HH:mm" />
+<span>Devices
+  <select ng-model="data.selectedip" ng-options="y.IP_AD for (x, y) in data.ipads">
+    <option value =""disabled select>SELECT-IP</option>
+  </select>
+</span>
+
+<h1>You selected: {{data.selectedip.ip}}</h1>
+<am-chart id="myFirstChart" options="amChartOptions" height="400px" width="auto"></am-chart>
