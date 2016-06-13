@@ -1,42 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="545bdac6-9f34-4908-89e9-189be346b7d7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/assets/.gitkeep" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.bowerrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.csslintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.editorconfig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/frontend.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/frontend_node_modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/karma.conf.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/amcharts/amchart-controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/amcharts/amchart.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/amcharts/amchart.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/app.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/styles/_base.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/todo/todo-controller.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/todo/todo-controller_test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/todo/todo.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/todo/todo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app/todo/todo.scss" />
-    </list>
+    <list default="true" id="545bdac6-9f34-4908-89e9-189be346b7d7" name="Default" comment="" />
     <ignored path="frontend.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -100,7 +65,7 @@
       <file leaf-file-name="amchart-controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/amcharts/amchart-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-305">
               <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
               <folding>
                 <element signature="e#0#44#0" expanded="false" />
@@ -718,12 +683,12 @@
       <workItem from="1465304684768" duration="1416000" />
       <workItem from="1465373730035" duration="3590000" />
       <workItem from="1465455728300" duration="36611000" />
-      <workItem from="1465800331926" duration="18208000" />
+      <workItem from="1465800331926" duration="19145000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114622000" />
+    <option name="totallyTimeSpent" value="115559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1167,7 +1132,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/amcharts/amchart-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-305">
           <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding>
             <element signature="e#0#44#0" expanded="false" />
