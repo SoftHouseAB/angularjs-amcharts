@@ -1,6 +1,9 @@
 node_modules/
 bower_components/
 .tmp/
+<<<<<<< HEAD
 dist/
 angularjs-datetime-picker/
 bower.json.bak
+=======
+>>>>>>> 9e245c562f643c8eeb68154acb578700e523a9fa

@@ -20,6 +20,18 @@ angular
       $scope.label = '';
     };
 
+<<<<<<< HEAD
+=======
+    var fragments3 = $resource('http://localhost:8080/fragments');
+    $scope.greetings = fragments3.query();
+    //var helloWorld = $resource('http://localhost:8080/hello');
+    //$scope.greeting = helloWorld.get();
+    $http.get('http://localhost:8080/hello').then(function(response) {
+      $scope.greeting = response.data;
+    });
+
+
+>>>>>>> 9e245c562f643c8eeb68154acb578700e523a9fa
     $scope.check = function () {
       this.todo.isDone = !this.todo.isDone;
     };

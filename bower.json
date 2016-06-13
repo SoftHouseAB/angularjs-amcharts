@@ -24,6 +24,7 @@
     "angular-resource": "^1.5.5",
     "amcharts": "^3.15.2",
     "bootstrap": "^3.3.6",
+<<<<<<< HEAD
     "amcharts-angular": "*",
     "angular-datetime-picker": "^0.0.3",
     "angularjs-datetime-picker": "^0.1.20"
@@ -33,5 +34,11 @@
   },
   "resolutions": {
     "angular": "~1.5.5"
+=======
+    "amcharts-angular": "*"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.5.5"
+>>>>>>> 9e245c562f643c8eeb68154acb578700e523a9fa
   }
 }
