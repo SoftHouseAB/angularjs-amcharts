@@ -3,7 +3,6 @@
  */
 angular
   .module('charts')
-<<<<<<< HEAD
   .factory('Metrics', function ($http) {
     return {
       getMetrics: function(ip, sdate, edate) {
@@ -60,23 +59,6 @@ angular
     $scope.amChartOptions = $timeout(function(){
       return {
         data: Metrics.getMetrics($scope.data.selectedip.IP_AD, $scope.data.sdate.value, $scope.data.edate.value).then(function (metrics) {return metrics}),
-=======
-  .controller('AmchartCtrl', function ($scope, $resource, $http, $q, $timeout) {
-    'use strict';
-
-    $scope.dataFromPromise = function(){
-      var deferred = $q.defer();
-      $http.get('http://localhost:8080/metrics').then(function(response) {
-        $scope.jsonData = JSON.parse(response.data);
-        deferred.resolve($scope.jsonData);
-      });
-      return deferred.promise;
-    };
-    $scope.amChartOptions = $timeout(function(){
-      console.log($scope.dataFromPromise());
-      return {
-        data: $scope.dataFromPromise(),
->>>>>>> 9e245c562f643c8eeb68154acb578700e523a9fa
         type: "serial",
         categoryField: "DATE_AND_TIME",
         rotate: false,
@@ -104,9 +86,5 @@ angular
           fillAlphas: 0
         }]
       }
-<<<<<<< HEAD
     }, 500);
-=======
-    }, 1000);
->>>>>>> 9e245c562f643c8eeb68154acb578700e523a9fa
   });

@@ -1,30 +1,5 @@
-<<<<<<< HEAD
 <h3>Homepage</h3>
 <div id="header-wrapper">
   <h1> {{appDetails.title}} </h1>
   <h2> {{appDetails.tagline}} </h2>
 </div>
-
-=======
-<h3>Todo</h3>
-<div id="header-wrapper">
-  <h1 class="logo pull-left"> {{appDetails.title}} </h1>
-  <h2 class="tagline pull-left"> {{appDetails.tagline}} </h2>
-</div>
-<ul class="todo-list">
-  <li class="todo-item" ng-repeat="todo in todos" ng-class="{'todo-done': todo.isDone}">
-    <label><input type="checkbox" ng-click="check()" ng-model="todo.isDone"/>&nbsp;{{todo.label}}</label>
-  </li>
-  <li class="todo-item">
-    <form ng-submit="add()">
-      <input type="text" placeholder="New item..." ng-model="label"/>
-      <button type="submit" ng-disabled="posting || !label">Add</button>
-    </form>
-  </li>
-</ul>
-<li class="fragments" ng-repeat="greeting in greetings">
-  <label>{{greeting.name}}</label>
-</li>
-<p>{{greeting}}</p>
->>>>>>> 9e245c562f643c8eeb68154acb578700e523a9fa
-
