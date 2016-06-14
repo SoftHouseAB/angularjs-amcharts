@@ -26,7 +26,11 @@ var htmlminOpts = {
  *  Zip file
  */
 gulp.task('zip', function () {
-  return gulp.src('./**')
+  return gulp.src([
+    './**',
+    '!./bower_components/**','!./bower_components',
+    '!./dist/**','!./dist',
+    '!./node_modules/**','!./node_modules'])
     .pipe(zip('archive.zip'))
     .pipe(gulp.dest('./dist'));
 });
