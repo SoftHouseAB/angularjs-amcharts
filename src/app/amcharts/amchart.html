@@ -1,11 +1,15 @@
-<h3>Amchart</h3>
-Start date <input datetime-picker ng-model="data.sdate.value" date-format="yyyy-MM-dd HH:mm" />
-End date <input datetime-picker ng-model="data.edate.value" max="endDate.max" date-format="yyyy-MM-dd HH:mm" />
-<span>Devices
-  <select ng-model="data.selectedip" ng-options="y.IP_AD for (x, y) in data.ipads">
-    <option value =""disabled select>SELECT-IP</option>
-  </select>
-</span>
-
-<h1>You selected: {{data.selectedip.ip}}</h1>
+<h3>CPU usage for selected devices</h3>
+<br />
+<label>Start Date </label>
+<input datetime-picker ng-model="data.sdate.value" date-format="yyyy-MM-dd HH:mm" />
+&nbsp;
+<label>End Date </label>
+<input datetime-picker ng-model="data.edate.value" max="endDate.max" date-format="yyyy-MM-dd HH:mm" />
+&nbsp;
+<label>Multiple Devices </label>
+<button type="button" class="btn btn-default" ng-model="data.selectedip" data-html="1" data-multiple="1"
+        data-animation="am-flip-x" bs-options="y.IP_AD for y in data.ipads" bs-select height="auto">
+  Action <span class="caret"></span>
+</button>
+<br /><br /><br />
 <am-chart id="myFirstChart" options="amChartOptions" height="400px" width="auto"></am-chart>

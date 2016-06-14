@@ -6,7 +6,11 @@ angular
   .factory('Metrics', function ($http) {
     return {
       getMetrics: function(ip, sdate, edate) {
-        return $http.get('http://localhost:8080/metrics?ip='+ip+'&sdate='+sdate+'&edate='+edate).then(function(response) {
+        var multiple_IP = [];
+        ip.forEach(function (tempIP) {
+          multiple_IP.push(tempIP.IP_AD);
+        })
+        return $http.get('http://localhost:8080/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
           return JSON.parse(response.data);
         }, function (error) {
           console.log(error);
@@ -24,43 +28,76 @@ angular
       }
     };
   })
-  .controller('AmchartCtrl', function ($scope, $rootScope, $resource, $http, $q, $timeout, $filter, devicesList, Metrics) {
+  .controller('AmchartCtrl', function ($scope, $rootScope, $http, $timeout, $filter, devicesList, Metrics) {
     'use strict';
     var pday = new Date();
     pday.setDate(pday.getDate() - 2);
-    $scope.startDate = {
-      value : $filter('date')(pday , "yyyy-MM-dd HH:mm")
-    };
-    $scope.endDate = {
-      value : $filter('date')(Date.now(), "yyyy-MM-dd HH:mm"),
-      max : $filter('date')(Date.now(), "yyyy-MM-dd")
-    };
-
+    var CPU_USAGE = [];
     $scope.IP_ADDS = devicesList;
     $scope.data = {
-      sdate : $scope.startDate,
-      edate : $scope.endDate,
+      sdate : {
+        value : $filter('date')(pday , "yyyy-MM-dd HH:mm")
+      },
+      edate : {
+        value : $filter('date')(Date.now(), "yyyy-MM-dd HH:mm"),
+        max : $filter('date')(Date.now(), "yyyy-MM-dd")
+      },
       ipads : $scope.IP_ADDS,
-      selectedip : $scope.IP_ADDS[0]
+      selectedip : [$scope.IP_ADDS[0]]
     };
 
     $scope.$watch('data', function (newData, oldData) {
       if (newData != oldData) {
-        console.log(newData.sdate.value);
         console.log("Wait for the chart to render...");
-        Metrics.getMetrics(newData.selectedip.IP_AD, newData.sdate.value, newData.edate.value).then(function (metrics) {
+        if (newData.selectedip.length == 0) {
           $timeout(function() {
-            $rootScope.$broadcast('amCharts.updateData', metrics);
+            $rootScope.$broadcast('amCharts.updateData', []);
           }, 500);
-        });
+        }
+        else {
+          Metrics.getMetrics(newData.selectedip, newData.sdate.value, newData.edate.value).then(function (metrics) {
+              $timeout(function () {
+                $rootScope.$broadcast('amCharts.updateData', massageData(metrics, CPU_USAGE));
+              }, 500);
+          });
+        }
       }
     }, true);
 
+    function massageData(metrics, selectedMetric) {
+      var array = [];
+      metrics.forEach(function (metric) { array = array.concat(metric.metrics)})
+      //var realMetrics = metrics.map(function(metric) {return metric.metrics});
+      var data = {};
+      array.forEach(function (m) {
+        if(!data[m.DATE_AND_TIME]) {
+          data[m.DATE_AND_TIME] = {}
+        }
+        data[m.DATE_AND_TIME]['time'] = m.DATE_AND_TIME;
+        data[m.DATE_AND_TIME][m.IP_AD] = m.CPU_USAGE
+      });
+      var realData = Object.keys(data).map(function(key) { return data[key]});
+      return realData;
+    }
+
+    var graphs = [];
+    $scope.IP_ADDS.forEach(function (ip) {
+      graphs.push({
+        type: "line",
+        bullet: "round",
+        title: "Server Metrics",
+        valueField: ip.IP_AD,
+        fillAlphas: 0
+      })
+    });
+
     $scope.amChartOptions = $timeout(function(){
       return {
-        data: Metrics.getMetrics($scope.data.selectedip.IP_AD, $scope.data.sdate.value, $scope.data.edate.value).then(function (metrics) {return metrics}),
+        data: Metrics.getMetrics($scope.data.selectedip, $scope.data.sdate.value, $scope.data.edate.value).then(function (metrics) {
+              return massageData(metrics, CPU_USAGE);
+        }),
         type: "serial",
-        categoryField: "DATE_AND_TIME",
+        categoryField: "time",
         rotate: false,
         legend: {
           enabled: true
@@ -78,13 +115,7 @@ angular
           position: "left",
           title: "CPU Usage"
         }],
-        graphs: [{
-          type: "line",
-          bullet: "round",
-          title: "Server Metrics",
-          valueField: "CPU_USAGE",
-          fillAlphas: 0
-        }]
+        graphs: graphs
       }
     }, 500);
   });
