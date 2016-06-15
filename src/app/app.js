@@ -2,6 +2,7 @@ angular.module('frontend', [
   'ngRoute',
   'ngResource',
   'charts',
+  'device',
   'frontend.todo'
 ])
 .config(function ($routeProvider) {
@@ -17,6 +18,15 @@ angular.module('frontend', [
       resolve: {
         devicesList: function(devicesListFactory) {
           return devicesListFactory.getDevicesList();
+        }
+      }
+    })
+    .when('/devices', {
+      controller: 'DeviceCtrl',
+      templateUrl: '/frontend/devices/devices.html',
+      resolve: {
+        metricsList: function(metricsListFactory) {
+          return metricsListFactory.getMetricsList();
         }
       }
     })

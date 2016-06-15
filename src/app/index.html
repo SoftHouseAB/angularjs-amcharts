@@ -9,6 +9,7 @@
     <!-- endinject -->
     <!-- inject:css -->
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/devices/devices.css">
     <link rel="stylesheet" href="/css/todo/todo.css">
     <!-- endinject -->
     <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
@@ -29,7 +30,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
           <li><a href="#/amcharts">Charts</a></li>
-          <li><a href="#">Devices</a></li>
+          <li><a href="#/devices">Devices</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -52,11 +53,14 @@
     <script src="/angular-strap/dist/angular-strap.js"></script>
     <script src="/angular-strap/dist/angular-strap.tpl.js"></script>
     <script src="/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/angular-smart-table/dist/smart-table.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
     <script src="/todo/todo.js"></script>
     <script src="/todo/todo-controller.js"></script>
+    <script src="/devices/devices.js"></script>
+    <script src="/devices/devices-controller.js"></script>
     <script src="/amcharts/amchart.js"></script>
     <script src="/amcharts/amchart-controller.js"></script>
     <script src="/app.js"></script>

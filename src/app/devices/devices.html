@@ -1,0 +1,44 @@
+<h3>Available Devices</h3>
+<br />
+
+<table st-table="metricsData" class="table table-striped">
+  <thead>
+  <tr>
+    <th class="st-sort-primary" st-sort="IP_AD">IP Address</th>
+    <th class="st-sort-primary" st-sort="DATE_AND_TIME">Date</th>
+    <th class="st-sort-primary" st-sort="CPU_USAGE">CPU Usage</th>
+    <td></td>
+  </tr>
+  <tr>
+    <th>
+      <input st-search="IP_AD" size="5" placeholder="search for IP Address" class="input-sm form-control" type="search"/>
+    </th>
+    <th>
+      <input st-search="DATE_AND_TIME" size="5" placeholder="search with dates" class="input-sm form-control" type="search"/>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="metric in metricsData">
+    <td><button type="button" ng-click="removeDevice(metric)" class="btn btn-sm btn-danger">
+      <i class="glyphicon glyphicon-trash">
+      </i>
+    </button> &nbsp; {{metric.IP_AD}} </td>
+    <td>{{metric.DATE_AND_TIME | date}}</td>
+    <td>{{metric.CPU_USAGE}}</td>
+    <td>
+      <button type="button" ng-click="removeItem(metric)" class="btn btn-sm btn-danger">
+        <i class="glyphicon glyphicon-remove-circle">
+        </i>
+      </button>
+    </td>
+  </tr>
+  </tbody>
+  <tfoot>
+  <tr>
+    <td colspan="5" class="text-center">
+      <div st-pagination="" st-items-by-page="itemsPerPage" st-displayed-pages="totalPages"></div>
+    </td>
+  </tr>
+  </tfoot>
+</table>
