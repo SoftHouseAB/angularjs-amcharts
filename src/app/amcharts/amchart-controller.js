@@ -34,6 +34,7 @@ angular
     pday.setDate(pday.getDate() - 2);
     var CPU_USAGE = [];
     $scope.IP_ADDS = devicesList;
+    $scope.loader = true;
     $scope.data = {
       sdate : {
         value : $filter('date')(pday , "yyyy-MM-dd HH:mm")
@@ -48,6 +49,7 @@ angular
 
     $scope.$watch('data', function (newData, oldData) {
       if (newData != oldData) {
+        $scope.loader = true;
         console.log("Wait for the chart to render...");
         if (newData.selectedip.length == 0) {
           $timeout(function() {
@@ -77,6 +79,7 @@ angular
         data[m.DATE_AND_TIME][m.IP_AD] = m.CPU_USAGE
       });
       var realData = Object.keys(data).map(function(key) { return data[key]});
+      $scope.loader = false;
       return realData;
     }
 

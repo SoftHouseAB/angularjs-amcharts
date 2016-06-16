@@ -12,4 +12,16 @@
   Action <span class="caret"></span>
 </button>
 <br /><br /><br />
-<am-chart id="myFirstChart" options="amChartOptions" height="400px" width="auto"></am-chart>
+<div>
+  <div id="circularG" ng-show="loader">
+    <div id="circularG_1" class="circularG"></div>
+    <div id="circularG_2" class="circularG"></div>
+    <div id="circularG_3" class="circularG"></div>
+    <div id="circularG_4" class="circularG"></div>
+    <div id="circularG_5" class="circularG"></div>
+    <div id="circularG_6" class="circularG"></div>
+    <div id="circularG_7" class="circularG"></div>
+    <div id="circularG_8" class="circularG"></div>
+  </div>
+  <am-chart id="myFirstChart" ng-hide="loader" options="amChartOptions" height="400px" width="auto"></am-chart>
+</div>

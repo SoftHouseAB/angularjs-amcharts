@@ -1,12 +1,23 @@
 angular.module('frontend', [
   'ngRoute',
   'ngResource',
+  'ngProgress',
   'charts',
   'device',
   'frontend.todo'
 ])
+.run(function($rootScope, ngProgressFactory) {
+  $rootScope.progressbar = ngProgressFactory.createInstance();
+  $rootScope.$on('$routeChangeStart', function(ev,data) {
+    $rootScope.progressbar.start();
+  });
+  $rootScope.$on('$routeChangeSuccess', function(ev,data) {
+    $rootScope.progressbar.complete();
+  });
+})
 .config(function ($routeProvider) {
   'use strict';
+
   $routeProvider
     .when('/todo', {
       controller: 'TodoCtrl',
