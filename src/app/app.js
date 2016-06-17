@@ -21,11 +21,11 @@ angular.module('frontend', [
   $routeProvider
     .when('/todo', {
       controller: 'TodoCtrl',
-      templateUrl: '/frontend/todo/todo.html'
+      templateUrl: 'todo/todo.html'
     })
     .when('/amcharts', {
       controller: 'AmchartCtrl',
-      templateUrl: '/frontend/amcharts/amchart.html',
+      templateUrl: 'amcharts/amchart.html',
       resolve: {
         devicesList: function(devicesListFactory) {
           return devicesListFactory.getDevicesList();
@@ -34,7 +34,7 @@ angular.module('frontend', [
     })
     .when('/devices', {
       controller: 'DeviceCtrl',
-      templateUrl: '/frontend/devices/devices.html',
+      templateUrl: 'devices/devices.html',
       resolve: {
         metricsList: function(metricsListFactory) {
           return metricsListFactory.getMetricsList();

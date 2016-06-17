@@ -7,7 +7,8 @@ angular
   .factory('metricsListFactory', function ($http) {
     return {
       getMetricsList: function() {
-        return $http.get('http://localhost:8080/metrics').then(function(response) {
+        //return $http.get('http://localhost:8080/metrics').then(function(response) {
+        return $http.get('/metrics').then(function(response) {
           return JSON.parse(response.data);
         });
       }
@@ -21,7 +22,8 @@ angular
 
     $scope.removeDevice = function (metric) {
       if(window.confirm("Are you sure? \nWARNING: Device will be deleted permanently!")) {
-        $http.get('http://localhost:8080/metrics/delete?ip='+metric.IP_AD).then(function (response) {
+        //$http.get('http://localhost:8080/metrics/delete?ip='+metric.IP_AD).then(function (response) {
+        $http.get('/metrics/delete?ip='+metric.IP_AD).then(function (response) {
           console.log(response);
           window.location.reload();
         })
@@ -34,7 +36,8 @@ angular
         if (index !== -1) {
           $scope.metricsData.splice(index, 1);
         }
-        $http.get('http://localhost:8080/metrics/delete?ip='+metric.IP_AD+'&date='+metric.DATE_AND_TIME).then(function (response) {
+        //$http.get('http://localhost:8080/metrics/delete?ip='+metric.IP_AD+'&date='+metric.DATE_AND_TIME).then(function (response) {
+        $http.get('/metrics/delete?ip='+metric.IP_AD+'&date='+metric.DATE_AND_TIME).then(function (response) {
           console.log(response);
         })
       }

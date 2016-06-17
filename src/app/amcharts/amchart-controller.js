@@ -10,7 +10,8 @@ angular
         ip.forEach(function (tempIP) {
           multiple_IP.push(tempIP.IP_AD);
         })
-        return $http.get('http://localhost:8080/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
+        //return $http.get('http://localhost:8080/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
+        return $http.get('/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
           return JSON.parse(response.data);
         }, function (error) {
           console.log(error);
@@ -22,10 +23,11 @@ angular
   .factory('devicesListFactory', function ($http) {
     return {
       getDevicesList: function() {
-        return $http.get('http://localhost:8080/metrics/devices').then(function(response) {
-          return JSON.parse(response.data);
-        });
-      }
+        //return $http.get('http://localhost:8080/metrics/devices').then(function(response) {
+        return $http.get('/metrics/devices').then(function(response) {
+            return JSON.parse(response.data);
+          });
+        }
     };
   })
   .controller('AmchartCtrl', function ($scope, $rootScope, $http, $timeout, $filter, devicesList, Metrics) {
