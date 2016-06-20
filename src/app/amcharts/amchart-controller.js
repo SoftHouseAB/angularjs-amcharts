@@ -3,15 +3,14 @@
  */
 angular
   .module('charts')
-  .factory('Metrics', function ($http) {
+  .factory('Metrics', function ($http, HOST_DOMAIN) {
     return {
       getMetrics: function(ip, sdate, edate) {
         var multiple_IP = [];
         ip.forEach(function (tempIP) {
           multiple_IP.push(tempIP.IP_AD);
         })
-        return $http.get('http://localhost:8080/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
-        //return $http.get('/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
+        return $http.get(HOST_DOMAIN+'/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
           return JSON.parse(response.data);
         }, function (error) {
           console.log(error);
@@ -20,13 +19,15 @@ angular
       }
     };
   })
-  .factory('devicesListFactory', function ($http) {
+  .factory('devicesListFactory', function ($http, HOST_DOMAIN) {
     return {
       getDevicesList: function() {
-        return $http.get('http://localhost:8080/metrics/devices').then(function(response) {
-        //return $http.get('/metrics/devices').then(function(response) {
+        return $http.get(HOST_DOMAIN+'/metrics/devices').then(function(response) {
             return JSON.parse(response.data);
-          });
+          }, function (error) {
+          console.log(error);
+          return [];
+        });
         }
     };
   })
@@ -34,7 +35,6 @@ angular
     'use strict';
     var pday = new Date();
     pday.setDate(pday.getDate() - 2);
-    var CPU_USAGE = [];
     $scope.IP_ADDS = devicesList;
     $scope.metricsType = ["CPU Usage", "Memory Usage", "Network Input", "Network Output"];
     $scope.loader = true;
@@ -66,7 +66,7 @@ angular
             $scope.newChartOptions = $scope.amChartOptions.then(function (result) {
               result.valueAxes[0].title = newData.selectedType;
               $rootScope.$broadcast('amCharts.renderChart', result);
-              console.log(result);
+              //console.log(result);
             });
           }
           Metrics.getMetrics(newData.selectedip, newData.sdate.value, newData.edate.value).then(function (metrics) {
@@ -78,6 +78,7 @@ angular
       }
     }, true);
 
+    // Christian's code for formating the data
     function massageData(metrics, selectedMetric) {
       var array = [];
       metrics.forEach(function (metric) { array = array.concat(metric.metrics)})
@@ -132,7 +133,7 @@ angular
         },
         valueAxes: [{
           position: "left",
-          title: "CPU Usage"
+          title: $scope.data.selectedType
         }],
         graphs: graphs
       }
