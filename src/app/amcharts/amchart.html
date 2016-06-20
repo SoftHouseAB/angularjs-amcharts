@@ -11,6 +11,9 @@
         data-animation="am-flip-x" bs-options="y.IP_AD for y in data.ipads" bs-select height="auto">
   Action <span class="caret"></span>
 </button>
+<label>Metric Type </label>
+<select ng-model="data.selectedType" ng-options="x for x in data.metricTypes">
+</select>
 <br /><br /><br />
 <div>
   <div id="circularG" ng-show="loader">

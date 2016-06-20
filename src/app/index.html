@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <title>frontend</title>
-    <!--
+
     <link rel="stylesheet" href="/nya-bootstrap-select/dist/css/nya-bs-select.css">
     <link rel="stylesheet" href="/angular-motion/dist/angular-motion.css">
     <link rel="stylesheet" href="/ngprogress/ngProgress.css">
@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="amcharts/amchart.css">
     <link rel="stylesheet" href="devices/devices.css">
     <link rel="stylesheet" href="todo/todo.css">
-    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../bower_components/angularjs-datetime-picker/angularjs-datetime-picker.css" />
-
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/angularjs-datetime-picker/angularjs-datetime-picker.css" />
+    <!--
     <link rel="stylesheet" href="../../bower_components/nya-bootstrap-select/dist/css/nya-bs-select.css">
     <link rel="stylesheet" href="../../bower_components/angular-motion/dist/angular-motion.css">
     <link rel="stylesheet" href="../../bower_components/ngprogress/ngProgress.css">
@@ -29,23 +29,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">WebSiteName</a>
+        <a class="navbar-brand" href="#">Softhouse Server Monitor</a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#/amcharts">Charts</a></li>
-          <li><a href="#/devices">Devices</a></li>
+          <li ng-class="{active: isActive('#')}"><a href="#">Home</a></li>
+          <li ng-class="{active: isActive('#/amcharts')}"><a href="#/amcharts">Charts</a></li>
+          <li ng-class="{active: isActive('#/devices')}"><a href="#/devices">Devices</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
           <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
       </div>
     </div>
   </nav>
     <ng-view></ng-view>
-  <!--
   <script src="/angular/angular.js"></script>
   <script src="/angular-route/angular-route.js"></script>
   <script src="/angular-resource/angular-resource.js"></script>
@@ -61,7 +60,7 @@
   <script src="/angular-smart-table/dist/smart-table.js"></script>
   <script src="/ngprogress/build/ngprogress.min.js"></script>
   <script src="/bootstrap/dist/js/bootstrap.js"></script>
-  <!--  -->
+  <!--
   <script src="../../bower_components/angular/angular.js"></script>
   <script src="../../bower_components/angular-route/angular-route.js"></script>
   <script src="../../bower_components/angular-resource/angular-resource.js"></script>
@@ -86,9 +85,9 @@
   <script src="amcharts/amchart.js"></script>
   <script src="amcharts/amchart-controller.js"></script>
   <script src="app.js"></script>
-  <!-- <script src="/frontend-templates.js"></script> -->
+  <script src="/frontend-templates.js"></script>
 
-  <script src="../../bower_components/amcharts/dist/amcharts/serial.js"></script>
+  <script src="/amcharts/dist/amcharts/serial.js"></script>
 
   </body>
 </html>

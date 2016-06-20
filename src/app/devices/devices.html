@@ -7,6 +7,9 @@
     <th class="st-sort-primary" st-sort="IP_AD">IP Address</th>
     <th class="st-sort-primary" st-sort="DATE_AND_TIME">Date</th>
     <th class="st-sort-primary" st-sort="CPU_USAGE">CPU Usage</th>
+    <th class="st-sort-primary" st-sort="MEMORY">Memory</th>
+    <th class="st-sort-primary" st-sort="NETWORK_IN">Network Input</th>
+    <th class="st-sort-primary" st-sort="NETWORK_OUT">Network Output</th>
     <td></td>
   </tr>
   <tr>
@@ -26,6 +29,9 @@
     </button> &nbsp; {{metric.IP_AD}} </td>
     <td>{{metric.DATE_AND_TIME | date}}</td>
     <td>{{metric.CPU_USAGE}}</td>
+    <td>{{metric.MEMORY}}</td>
+    <td>{{metric.NETWORK_IN}}</td>
+    <td>{{metric.NETWORK_OUT}}</td>
     <td>
       <button type="button" ng-click="removeItem(metric)" class="btn btn-sm btn-danger">
         <i class="glyphicon glyphicon-remove-circle">
