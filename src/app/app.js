@@ -6,7 +6,7 @@ angular.module('frontend', [
   'device',
   'frontend.todo'
 ])
-  .constant('HOST_DOMAIN', 'http://localhost:8080')
+  .constant('HOST_DOMAIN', '') //http://localhost:8080
 .run(function($rootScope, ngProgressFactory) {
   $rootScope.progressbar = ngProgressFactory.createInstance();
   $rootScope.$on('$routeChangeStart', function(ev,data) {

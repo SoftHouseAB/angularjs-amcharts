@@ -11,6 +11,7 @@ angular
           multiple_IP.push(tempIP.IP_AD);
         })
         return $http.get(HOST_DOMAIN+'/metrics?ip='+multiple_IP+'&sdate='+sdate+'&edate='+edate).then(function(response) {
+          console.log(response.data);
           return JSON.parse(response.data);
         }, function (error) {
           console.log(error);
